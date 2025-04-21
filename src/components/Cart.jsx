@@ -19,7 +19,7 @@ function Cart(){
     return(<div className="w-fit grid grid-cols-2 grid-rows-2 h-auto ">
 
 
-<div className="grid grid-cols-1  grid-rows-1 md:grid-cols-2 lg:grid-cols-3 w-screen m-2 gap-2  ">
+<div className="grid grid-cols-1  grid-rows-1 md:grid-cols-2 lg:grid-cols-3 w-screen m-2 gap-2  ">{selector.length==0 || !selector?<h1 className='text-center text-white font-bold text-3xl'> No Items to Display..</h1>: ""}
 
     {/* fetching of cart info */}
         {selector.map((items)=><div key={items.id} className="bg-white/50 border-0 rounded-3xl h-full" >        

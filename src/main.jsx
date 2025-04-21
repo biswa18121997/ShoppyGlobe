@@ -1,15 +1,23 @@
-import React from 'react'
+import React,{lazy,Suspense} from 'react'
 import ReactDom from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
-import Products from './components/Products.jsx'
-import Cart from './components/Cart.jsx'
-import Error from './components/Error.jsx'
-import Home from './components/Home.jsx'
-import ProductDetails from './components/ProductDetails.jsx'
-import Categories from './components/Categories.jsx'
-import Checkout from './components/Checkout.jsx'
+import LoadingScreen from './components/LoadingScreen.jsx'
+//import Products from './components/Products.jsx'
+let Products=lazy(()=>import('./components/Products.jsx') )
+//import Cart from './components/Cart.jsx'
+let Cart=lazy(()=>import('./components/Cart.jsx') )
+//import Error from './components/Error.jsx'
+let Error=lazy(()=>import('./components/Error.jsx') )
+//import Home from './components/Home.jsx'
+let Home=lazy(()=>import('./components/Home.jsx') )
+//import ProductDetails from './components/ProductDetails.jsx'
+let ProductDetails=lazy(()=>import('./components/ProductDetails.jsx') )
+//import Categories from './components/Categories.jsx'
+let Categories=lazy(()=>import('./components/Categories.jsx') )
+let Checkout=lazy(()=>import('./components/Checkout.jsx') )
+//import Checkout from './components/Checkout.jsx'
 
 
 
@@ -21,27 +29,27 @@ const routes=createBrowserRouter([
     children :[
       {
         path:"/",
-        element: <Home />
+        element: <Suspense fallback={<LoadingScreen />}><Home /></Suspense>
       },
       {
         path:"/products",
-        element:<Products />
+        element:<Suspense fallback={<LoadingScreen />}><Products /></Suspense>
       },
       {
         path: "/products/:id",
-        element: <ProductDetails />
+        element: <Suspense fallback={<LoadingScreen />}> <ProductDetails /></Suspense>
       },
       {
         path:"/categories",
-        element:<Categories />
+        element:<Suspense fallback={<LoadingScreen />}><Categories /></Suspense>
       },
       {
         path:"/cart",
-        element: <Cart />
+        element: <Suspense fallback={<LoadingScreen />}> <Cart /></Suspense>
       },
       {
         path:'/checkout/:id',
-        element: <Checkout />
+        element:<Suspense fallback={<LoadingScreen />}><Checkout /></Suspense> 
       }
 
 

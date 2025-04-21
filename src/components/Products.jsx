@@ -1,13 +1,13 @@
 
 import {useState,useEffect,lazy,Suspense} from 'react';
-//import ProductCards from './ProductCards';
+import ProductCards from './ProductCards';
 import useFetch from '../utils/useFetch'
-//import LoadingScreen from './LoadingScreen';
+import LoadingScreen from './LoadingScreen';
 import {useSearchParams} from 'react-router-dom'
 
 
-let ProductCards=lazy(()=>import('./ProductCards'));
-let LoadingScreen=lazy(()=>import('./LoadingScreen'));
+// let ProductCards=lazy(()=>import('./ProductCards'));
+// let LoadingScreen=lazy(()=>import('./LoadingScreen'));
 
 
 function Products(){
@@ -36,16 +36,16 @@ function Products(){
        if(loading){
         return(
                 // lazy loading
-                <Suspense fallback={<div>Loading..please Wait </div>}>
+                // <Suspense fallback={<div>Loading..please Wait </div>}>
                           <LoadingScreen />
-                </Suspense>)
+                // </Suspense>
+        )
         } 
         if(error){
                 console.log("the error is",error);
-                return(<Suspense >                             { /* error handling */}
-                        {/* <Error /> */}
+                return(                            
                         <div className='text-2xl text-center text-neutral-200 w-screen h-screen flex justify-center items-center bg-red-700/60 font-bold'> some thing went wrong during fetch..please try again later..or view console for more info <i className="fa-solid fa-skull-crossbones text-white text-4xl m-5"></i></div>
-              </Suspense>)
+              )
         }
        return(
        <div>     
@@ -63,12 +63,12 @@ function Products(){
 
        <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 lg:grid-cols-3">
         {/* lazy loading */}
-        <Suspense fallback={<div>Loading...</div>}>
+        
                 {products?.map((item)=> (
       
                 <ProductCards fetched={item}  key={item.id} />
         ))}
-        </Suspense>
+
        
         
 
