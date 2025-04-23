@@ -7,12 +7,13 @@ import {removeItem} from '../utils/CartSlice'
 function Cart(){
     
    let dispatch=useDispatch();
+   //dispatcher functio..
     function del(id){
 
         dispatch(removeItem(id));
         alert("item deleted");
     }
-
+//selector to retreive
     let selector=useSelector((state)=>state.cart.Cart);
     console.log(selector)
 
@@ -22,6 +23,7 @@ function Cart(){
 <div className="grid grid-cols-1  grid-rows-1 md:grid-cols-2 lg:grid-cols-3 w-screen m-2 gap-2  ">{selector.length==0 || !selector?<h1 className='text-center text-white font-bold text-3xl'> No Items to Display..</h1>: ""}
 
     {/* fetching of cart info */}
+    {/* //and dsplaying of cart info */}
         {selector.map((items)=><div key={items.id} className="bg-white/50 border-0 rounded-3xl h-full" >        
             <img src={items.images} className="w-full bg-amber-200 h-1/2" />
             <h3 className='font-bold m-2'>Product Name : {items.title}</h3>

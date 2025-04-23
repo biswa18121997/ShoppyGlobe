@@ -3,7 +3,7 @@ import useFetch from '../utils/useFetch'
 import LoadingScreen from './LoadingScreen'
 import {useState} from 'react'
 function Checkout(){
- 
+ //for selection of payment methds
   let [add,setAdd]=useState();
   const [visa, setVisa] = useState(false);
   const [debit,setDebit]=useState(false);

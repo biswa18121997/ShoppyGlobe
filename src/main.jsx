@@ -20,6 +20,9 @@ let Checkout=lazy(()=>import('./components/Checkout.jsx') )
 //import Checkout from './components/Checkout.jsx'
 
 
+//implemented the lazy loading but can see the the names of files on the ilst of js items in network console
+//but on the graph the lazy loading is visible..
+
 
 const routes=createBrowserRouter([
   {

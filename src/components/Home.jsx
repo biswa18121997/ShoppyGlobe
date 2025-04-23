@@ -7,6 +7,7 @@ function Home() {
   // const filterParam = searchParams.get('filter');
 
   return (
+    // display of some section on clicking of which different categories open
     <div className="h-fit  flex-col sm:flex-col  md:flex-col lg:flex-row flex items-center justify-around">
       
       <section className="grid grid-cols-1 grid-rows-1 sm:w-screen md:grid-cols-2 relative justify-center items-center top-1/5 p-4 m-2 gap-2 md:grid-rows-2 bg-gray-100/50 h-fit   ">
